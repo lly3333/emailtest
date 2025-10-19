@@ -1,0 +1,18 @@
+# .cnb.yml
+$:
+  # vscode 事件：专供页面中启动远程开发用
+  vscode:
+    - docker:
+        # image: docker.cnb.cool/vmss/hexo
+        build: ./.ide/Dockerfile
+      runner:
+        cpus: 16
+        # tags: cnb:arch:amd64:gpu
+      services:
+        - vscode
+        - docker
+      stages:
+        - name: ls
+          script: ls -al
+        - name: 安装
+          script: apt update
